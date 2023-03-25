@@ -153,9 +153,9 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     const Divider(
                       thickness: 1,
                     ),
-                    const Text(
-                      "Switch ON",
-                      style: TextStyle(
+                    Text(
+                      selectedAction,
+                      style: const TextStyle(
                           fontWeight: FontWeight.w600,
                           color: Color.fromARGB(255, 255, 255, 255)),
                     ),
