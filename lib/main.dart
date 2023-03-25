@@ -17,8 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Lumos App - Hand Gesture Recognition App',
       debugShowCheckedModeBanner: false,
+      
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MainPage(
         title: 'Home Page',
