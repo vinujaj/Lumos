@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lumosappsdgp/gesturebtnpage/handgesturepg.dart';
 
+//List model getlist from github
+late String selectedAction;
 ListTile getListTile(
   icon,
   iconColor,
@@ -24,9 +27,24 @@ ListTile getListTile(
         fontWeight: FontWeight.w700,
       ),
     ),
-    onTap: () => Navigator.of(context).pop(),
+    onTap: () {
+      Navigator.pop(context, titleText);
+    },
   );
 }
+
+// class HandGesture {
+//   final String gestureName;
+//   String gestureAction;
+//   final File image; //File image = File('/path/to/image.jpg');
+//   final String firebaseValue;
+
+//   HandGesture(
+//       {required this.gestureName,
+//       required this.gestureAction,
+//       required this.image,
+//       required this.firebaseValue});
+// }
 
 class MainHandGesture extends StatefulWidget {
   const MainHandGesture({super.key});
@@ -93,14 +111,14 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     const Divider(
                       thickness: 1,
                     ),
-                    const Text("Switch ON")
+                    Text(selectedAction),
                   ],
                 ),
               ),
             ),
             InkWell(
               onTap: () {
-                // Do something when the button is tapped
+                _openBottomSheet(context); //store the image as well
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -115,6 +133,10 @@ class _MainHandGestureState extends State<MainHandGesture> {
                       width: 80,
                       height: 80,
                     ),
+                    const Divider(
+                      thickness: 1,
+                    ),
+                    const Text("Switch ON"),
                   ],
                 ),
               ),
@@ -136,6 +158,10 @@ class _MainHandGestureState extends State<MainHandGesture> {
                       width: 80,
                       height: 80,
                     ),
+                    const Divider(
+                      thickness: 1,
+                    ),
+                    const Text("Switch ON"),
                   ],
                 ),
               ),
@@ -147,8 +173,9 @@ class _MainHandGestureState extends State<MainHandGesture> {
   }
 }
 
-void _openBottomSheet(context) {
-  showModalBottomSheet(
+void _openBottomSheet(context) async {
+  //TODO PARAMATETER OT STORE THE IMAGE
+  selectedAction = await showModalBottomSheet(
     context: context,
     isScrollControlled: true,
     builder: (builder) {
@@ -208,7 +235,7 @@ void _openBottomSheet(context) {
             getListTile(
               Icons.color_lens,
               Colors.blue,
-              "Change Color LED",
+              "Colour Change",
               context,
             ),
             getListTile(
@@ -222,4 +249,7 @@ void _openBottomSheet(context) {
       );
     },
   );
+  if (kDebugMode) {
+    print(selectedAction);
+  }
 }
