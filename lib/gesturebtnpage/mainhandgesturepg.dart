@@ -69,10 +69,11 @@ class _MainHandGestureState extends State<MainHandGesture> {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const OverlayHandGesture()));
+                _openBottomSheet(context);
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const OverlayHandGesture()));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -86,6 +87,16 @@ class _MainHandGestureState extends State<MainHandGesture> {
                       'images/ok_sign.png',
                       width: 80,
                       height: 80,
+                    ),
+                    const Divider(
+                      thickness: 1,
+                    ),
+                    Text(
+                      selectedAction,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
                     ),
                   ],
                 ),
@@ -111,7 +122,13 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     const Divider(
                       thickness: 1,
                     ),
-                    Text(selectedAction),
+                    Text(
+                      selectedAction,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -136,14 +153,19 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     const Divider(
                       thickness: 1,
                     ),
-                    const Text("Switch ON"),
+                    const Text(
+                      "Switch ON",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
                   ],
                 ),
               ),
             ),
             InkWell(
               onTap: () {
-                // Do something when the button is tapped
+                _openBottomSheet(context);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -161,7 +183,10 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     const Divider(
                       thickness: 1,
                     ),
-                    const Text("Switch ON"),
+                    Text(selectedAction,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 255, 255, 255))),
                   ],
                 ),
               ),
