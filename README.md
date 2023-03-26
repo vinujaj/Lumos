@@ -1,6 +1,8 @@
-# lumosappsdgp
+# frontend_lumos
 
 A new Flutter project.
+
+This is the intial code >>>sunday
 
 ## Getting Started
 

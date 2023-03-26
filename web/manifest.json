@@ -1,6 +1,6 @@
 {
-    "name": "lumosappsdgp",
-    "short_name": "lumosappsdgp",
+    "name": "frontend_lumos",
+    "short_name": "frontend_lumos",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

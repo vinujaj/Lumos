@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:lumosappsdgp/gesturebtnpage/handgesturepg.dart';
 
 //List model getlist from github
-late String selectedAction;
+late String  selectedAction = "action";
 ListTile getListTile(
   icon,
   iconColor,

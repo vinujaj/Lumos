@@ -2,8 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:lumosappsdgp/gesturebtnpage/handgesturepg.dart';
-import 'package:lumosappsdgp/gesturebtnpage/mainhandgesturepg.dart';
+import 'gesturebtnpage/mainhandgesturepg.dart';
 import 'onoffbutton.dart';
 
 class HomePage extends StatelessWidget {
