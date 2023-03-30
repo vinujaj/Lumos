@@ -39,7 +39,7 @@ class _GridState extends State<SliderGrid> {
   build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("LUOS")),
+        title: Center(child: Text("LUMOS")),
         backgroundColor: Color.fromARGB(197, 0, 107, 194),
         //elevation: 1.0,
       ),

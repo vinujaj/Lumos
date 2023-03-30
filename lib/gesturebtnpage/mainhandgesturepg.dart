@@ -97,6 +97,9 @@ void _openBottomSheet(context, int index) async {
       );
     },
   );
+  if (kDebugMode) {
+    print(selectedAction[index]);
+  }
 }
 
 class _MainHandGestureState extends State<MainHandGesture> {
