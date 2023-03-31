@@ -257,7 +257,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   if (kDebugMode) {
                     print(selectedAction);
                   }
-                  Navigator.of(context).pop();
+                  Navigator.pop(context);
 
                   //store the selection
                 },
@@ -268,4 +268,3 @@ class _MainHandGestureState extends State<MainHandGesture> {
     );
   }
 }
-
