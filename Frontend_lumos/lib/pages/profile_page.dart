@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
-
+  get user => FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -131,7 +132,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      'palmeiro.leonardo@gmail.com',
+                       user.email!,
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
