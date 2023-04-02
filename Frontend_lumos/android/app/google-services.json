@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "474045680496",
+    "project_id": "hyperxfinale",
+    "storage_bucket": "hyperxfinale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474045680496:android:07c6851b40528d461b9db5",
+        "android_client_info": {
+          "package_name": "com.example.modernlogintute"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474045680496-0hipies1eus0917qeitpfcfhgcvc26qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYzIFkJEtBHqoCnzHRI9zcxCSQa61LAhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474045680496-0hipies1eus0917qeitpfcfhgcvc26qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
