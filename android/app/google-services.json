@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "549463901914",
+    "project_id": "signup-lumos",
+    "storage_bucket": "signup-lumos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549463901914:android:08e01c2fa4211bd66b87e3",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549463901914-11kdjd5icn0sa15kh8b5jvufqilgtcqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test",
+            "certificate_hash": "7416e87e2e7fbf191aed1930bc81dca69e5bb725"
+          }
+        },
+        {
+          "client_id": "549463901914-7j70gslpl05p94aaovgpkqcb4h834jhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCOTJMGFRMsqWm7z2-tTp3e9I2p0PqfmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549463901914-7j70gslpl05p94aaovgpkqcb4h834jhf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
