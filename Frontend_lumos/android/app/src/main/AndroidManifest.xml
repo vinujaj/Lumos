@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.frontend_lumos">
+    package="com.example.modernlogintute">
    <application
-        android:label="frontend_lumos"
+        android:label="modernlogintute"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
