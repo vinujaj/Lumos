@@ -20,7 +20,7 @@ class SettingsPage extends StatelessWidget {
               FirebaseAuth.instance.signOut();
             },
             color: Colors.blueAccent,
-            child: Text('Sign -Out'),)
+            child: Text('Sign Out'),)
           ],
     )
       ),
