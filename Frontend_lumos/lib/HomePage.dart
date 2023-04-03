@@ -20,37 +20,49 @@ class _InitialPageState extends State<InitialPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blue[500],
-        selectedItemColor: Colors.white,
-        showUnselectedLabels: false,
-        iconSize: 40,
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() => currentIndex = index),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-            backgroundColor: Colors.red,
+    return Scaffold(
+      body: Stack(children: <Widget>[
+        screens[currentIndex],
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 20,
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.blue[500],
+            selectedItemColor: Colors.white,
+            showUnselectedLabels: false,
+            iconSize: 40,
+            currentIndex: currentIndex,
+            onTap: (index) => setState(() => currentIndex = index),
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: "Profile",
+                backgroundColor: Colors.red,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "Home",
+                backgroundColor: Colors.red,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: "Settings",
+                backgroundColor: Colors.red,
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
-            backgroundColor: Colors.red,
-          ),
-        ],
-      ),
+        ),
+      ]),
     );
   }
 }
+
+
+
+
+
 
 
 // Container(
