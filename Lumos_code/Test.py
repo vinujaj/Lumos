@@ -53,6 +53,7 @@ while True:
         # # Send the corresponding action to the Arduino board
         # action = labels[index]
         # ser.write(action.encode())
+        # add the arduino code
 
         cv2.rectangle(imgOutput, (x - offset, y - offset - 50),
                       (x - offset + 90, y - offset - 50 + 50), (255, 0, 255), cv2.FILLED)
