@@ -11,7 +11,7 @@ class Scene extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void _submit() async {
+/*  void _submit() async {
     String email = _emailController.text;
     String password = _passwordController.text;
     String? errorMessage = await registerWithEmailAndPassword(email, password);
@@ -20,7 +20,27 @@ class Scene extends StatelessWidget {
     } else {
       // Navigate to home screen
     }
+  }*/
+
+  Future<void> _createUserWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // Handle successful user creation
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        // Handle weak password error
+      } else if (e.code == 'email-already-in-use') {
+        // Handle email already in use error
+      }
+    } catch (e) {
+      // Handle other errors
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -240,7 +260,7 @@ class Scene extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    Email(
                       // emaileMv (I1:29;16:257)
                       margin: EdgeInsets.fromLTRB(0*fem, 30*fem, 0*fem, 0.96*fem),
                       child: Text(
@@ -284,30 +304,15 @@ class Scene extends StatelessWidget {
             ),
 
             Positioned(
-              //FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password)
-              // mobappbuttonprimaryFsW (1:30)
-              left: 51*fem,
-              top: 645*fem,
-              child: Container(
-                width: 258*fem,
-                height: 46*fem,
-                decoration: BoxDecoration (
-                  color: Color(0xff1e2f97),
-                  borderRadius: BorderRadius.circular(20*fem),
-                ),
-                child: Center(
-                  child: Center(
-                    child: Text(
-                      'Sign Up',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont (
-                        'Manrope',
-                        fontSize: 18*ffem,
-                        fontWeight: FontWeight.w700,
-                        height: 1.365*ffem/fem,
-                        color: Color(0xffffffff),
-                      ),
-                    ),
+              left: 51 * fem,
+              top: 645 * fem,
+              child: ElevatedButton(
+                onPressed: _createUserWithEmailAndPassword,
+                child: Text('Sign Up'),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff1e2f97),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20 * fem),
                   ),
                 ),
               ),
