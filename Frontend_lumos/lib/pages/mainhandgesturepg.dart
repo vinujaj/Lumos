@@ -141,7 +141,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'images/ok_sign.png',
+                      'lib/images/ok_sign.png',
                       width: 80,
                       height: 80,
                     ),
@@ -173,7 +173,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'images/handup.png',
+                      'lib/images/handup.png',
                       width: 80,
                       height: 80,
                     ),
@@ -206,7 +206,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'images/closedfist.png',
+                      'lib/images/closedfist.png',
                       width: 80,
                       height: 80,
                     ),
@@ -237,7 +237,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'images/thumsup.png',
+                      'lib/images/thumsup.png',
                       width: 80,
                       height: 80,
                     ),

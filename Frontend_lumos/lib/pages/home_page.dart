@@ -14,7 +14,8 @@ class HomePage extends StatelessWidget {
     return new MaterialApp(
       title: 'Home pAge',
       theme: ThemeData(
-        primaryColor: Colors.blue, // specify a default background color for the app
+        primaryColor:
+            Colors.blue, // specify a default background color for the app
       ),
       home: new SliderGrid(),
       debugShowCheckedModeBanner: false,
@@ -175,7 +176,7 @@ class _GridState extends State<SliderGrid> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            'images/gesture_btn.png',
+                            'lib/images/gesture_btn.png',
                             fit: BoxFit.cover,
                             // width: 40,
                             // height: 50,
