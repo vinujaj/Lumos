@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:modernlogintute/pages/testFile.dart';
 import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/settings_page.dart';
@@ -14,7 +15,8 @@ class InitialPage extends StatefulWidget {
 class _InitialPageState extends State<InitialPage> {
   int currentIndex = 1;
   final screens = <Widget>[
-    const ProfilePage(),
+    // const ProfilePage(),
+    FirebaseRealtimeDemoScreen(),
     const HomePage(),
     const SettingsPage()
   ];
