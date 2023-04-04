@@ -122,7 +122,10 @@ class _MainHandGestureState extends State<MainHandGesture> {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.red, Colors.orange, Colors.yellow]),
+              colors: [
+                Color.fromARGB(255, 82, 148, 248),
+                Color.fromARGB(243, 255, 255, 255)
+              ]),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),

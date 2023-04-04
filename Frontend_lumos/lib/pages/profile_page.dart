@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text('Profile'),
+          title: const Text('Profile'),
           centerTitle: true,
         ),
         body: ListView(
@@ -32,21 +32,21 @@ class ProfilePage extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
+                    children: const <Widget>[
                       CircleAvatar(
                         backgroundColor: Colors.white70,
                         minRadius: 60.0,
                         child: CircleAvatar(
                           radius: 50.0,
-                          backgroundImage: AssetImage('images/person.jpg'),
+                          backgroundImage: AssetImage('lib/images/person.jpg'),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                 const  Text(
                     'Leonardo Palmeiro',
                     style: TextStyle(
                       fontSize: 25,
@@ -68,54 +68,7 @@ class ProfilePage extends StatelessWidget {
             Container(
               child: Row(
                 children: <Widget>[
-                  // Expanded(
-                  //   child: Container(
-                  //     color: Colors.deepOrange.shade300,
-                  //     child: ListTile(
-                  //       title: Text(
-                  //         '5000',
-                  //         textAlign: TextAlign.center,
-                  //         style: TextStyle(
-                  //           fontWeight: FontWeight.bold,
-                  //           fontSize: 30,
-                  //           color: Colors.white,
-                  //         ),
-                  //       ),
-                  //       subtitle: Text(
-                  //         'Followers',
-                  //         textAlign: TextAlign.center,
-                  //         style: TextStyle(
-                  //           fontSize: 20,
-                  //           color: Colors.white70,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  // Expanded(
-                  //   child: Container(
-                  //     color: Colors.red,
-                  //     child: ListTile(
-                  //       title: Text(
-                  //         '5000',
-                  //         textAlign: TextAlign.center,
-                  //         style: TextStyle(
-                  //           fontWeight: FontWeight.bold,
-                  //           fontSize: 30,
-                  //           color: Colors.white,
-                  //         ),
-                  //       ),
-                  //       subtitle: Text(
-                  //         'Following',
-                  //         textAlign: TextAlign.center,
-                  //         style: TextStyle(
-                  //           fontSize: 20,
-                  //           color: Colors.white70,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  
                 ],
               ),
             ),
@@ -132,7 +85,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                       user.email!,
+                      user.email!,
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
