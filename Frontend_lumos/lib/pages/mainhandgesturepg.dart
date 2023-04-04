@@ -8,6 +8,7 @@ ListTile getListTile(
   iconColor,
   titleText,
   context,
+    index
 ) {
   return ListTile(
     // ignore: sized_box_for_whitespace
@@ -27,6 +28,7 @@ ListTile getListTile(
       ),
     ),
     onTap: () {
+      temp[index]= titleText;
       Navigator.pop(context, titleText);
     },
   );
@@ -45,6 +47,9 @@ List<String> selectedAction = [
   'Colour Change',
   'Party Mode'
 ];
+
+
+List<String> temp = ["","","",""];
 
 void _openBottomSheet(context, int index) async {
   selectedAction[index] = await showModalBottomSheet(
@@ -73,24 +78,28 @@ void _openBottomSheet(context, int index) async {
               Colors.yellow,
               "Switch ON",
               context,
+              index
             ),
             getListTile(
               Icons.lightbulb_outlined,
               Colors.black,
               "Switch OFF",
               context,
+              index
             ),
             getListTile(
               Icons.color_lens,
               Colors.blue,
               "Colour Change",
               context,
+              index
             ),
             getListTile(
               Icons.party_mode,
               Colors.red,
               "Party Mode",
               context,
+              index
             ),
           ],
         ),
@@ -111,6 +120,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
 
   @override
   Widget build(BuildContext context) {
+    print(temp);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Gesture Controls "),
@@ -266,6 +276,9 @@ class _MainHandGestureState extends State<MainHandGesture> {
                   onPressed: () {
                     if (kDebugMode) {
                       print(selectedAction);
+                    }
+                    if (kDebugMode) {
+                      print(temp);
                     }
                     Navigator.pop(context);
 
