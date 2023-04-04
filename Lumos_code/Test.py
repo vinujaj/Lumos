@@ -3,9 +3,10 @@ from cvzone.HandTrackingModule import HandDetector
 from cvzone.ClassificationModule import Classifier
 import numpy as np
 import math
-# import serial
-#
-# ser = serial.Serial('COM3', 9600)  # Change 'COM3' to the serial port of your Arduino board
+import pyfirmata
+
+board = pyfirmata.Arduino('COM5')
+led_pin = board.get_pin('d:13:o')
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
@@ -50,10 +51,12 @@ while True:
             imgWhite[hGap:hCal + hGap, :] = imgResize
             prediction, index = classifier.getPrediction(imgWhite, draw=False)
 
-        # # Send the corresponding action to the Arduino board
-        # action = labels[index]
-        # ser.write(action.encode())
-        # add the arduino code
+        # Send the corresponding action to the Arduino board
+
+        if labels[index] == 'A':
+            led_pin.write(1)  # turn the LED on
+        elif labels[index] == 'B':
+            led_pin.write(0)  # turn the LED off
 
         cv2.rectangle(imgOutput, (x - offset, y - offset - 50),
                       (x - offset + 90, y - offset - 50 + 50), (255, 0, 255), cv2.FILLED)
