@@ -7,9 +7,30 @@ import 'package:myapp/utils.dart';
 
 import 'auth.dart';
 
+class Email extends StatelessWidget {
+  final EdgeInsets margin;
+  final Widget child;
+
+  Email({required this.margin, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: margin,
+      child: child,
+    );
+  }
+}
+
+
 class Scene extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Scene({super.key});
+
+  get email => null;
+  get password => null;
 
 /*  void _submit() async {
     String email = _emailController.text;
@@ -314,9 +335,11 @@ class Scene extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20 * fem),
                   ),
+                  fixedSize: Size(260 * fem, 40 * fem), // set the size of the button
                 ),
               ),
             ),
+
 
             Positioned(
               // with7ep (1:31)
@@ -437,6 +460,6 @@ class Scene extends StatelessWidget {
           ],
         ),
       ),
-          );
+    );
   }
 }
