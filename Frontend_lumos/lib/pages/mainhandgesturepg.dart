@@ -4,13 +4,7 @@ import 'package:flutter/material.dart';
 
 //List model getlist from github
 
-ListTile getListTile(
-  icon,
-  iconColor,
-  titleText,
-  context,
-    index
-) {
+ListTile getListTile(icon, iconColor, titleText, context, index) {
   return ListTile(
     // ignore: sized_box_for_whitespace
     leading: Container(
@@ -29,7 +23,7 @@ ListTile getListTile(
       ),
     ),
     onTap: () {
-      temp[index]= titleText;
+      temp[index] = titleText;
       Navigator.pop(context, titleText);
     },
   );
@@ -41,9 +35,10 @@ class MainHandGesture extends StatefulWidget {
   @override
   State<MainHandGesture> createState() => _MainHandGestureState();
 }
+
 final databaseReference = FirebaseDatabase.instance.ref();
 
-//read from the server for a user at the moment 
+//read from the server for a user at the moment
 
 List<String> selectedAction = [
   'Switch ON',
@@ -52,8 +47,46 @@ List<String> selectedAction = [
   'Party Mode'
 ];
 
+List<String> temp = [
+  'Switch ON',
+  'Colour Change',
+  'Colour Change',
+  'Party Mode'];
+void createData() {
+  databaseReference.child("user1").set({
+    'actions': ["o", "s", "s", "f"],
+  });
+  databaseReference.child("user2").set({
+    'actions': ["s", "t", "w", "g"],
+  });
+}
 
-List<String> temp = ["","","",""];
+void getUserId() {}
+void readData(String childNode) async {
+  databaseReference.child(childNode).keepSynced(true);
+  databaseReference.child(childNode).onValue.listen((event) {
+    print('Data : ${event.snapshot.value}');
+  });
+  // databaseReference.child(childNode).onValue.listen((event) {
+  //   final value = event.snapshot.value;
+  //   // List<String>? pointlist = List.from(value["user2"]);
+  //   print(value);
+  // });
+}
+
+//pass parameter(user id , list string)
+void updateData() {
+  databaseReference.child('user1').update(
+    {
+      'action': ["p", "y", "w", "g"]
+    },
+  );
+  databaseReference.child('user2').update(
+    {
+      'action': ["s", "b", "w", "q"]
+    },
+  );
+}
 
 void _openBottomSheet(context, int index) async {
   selectedAction[index] = await showModalBottomSheet(
@@ -78,33 +111,13 @@ void _openBottomSheet(context, int index) async {
               height: 5.0,
             ),
             getListTile(
-              Icons.lightbulb,
-              Colors.yellow,
-              "Switch ON",
-              context,
-              index
-            ),
+                Icons.lightbulb, Colors.yellow, "Switch ON", context, index),
+            getListTile(Icons.lightbulb_outlined, Colors.black, "Switch OFF",
+                context, index),
             getListTile(
-              Icons.lightbulb_outlined,
-              Colors.black,
-              "Switch OFF",
-              context,
-              index
-            ),
+                Icons.color_lens, Colors.blue, "Colour Change", context, index),
             getListTile(
-              Icons.color_lens,
-              Colors.blue,
-              "Colour Change",
-              context,
-              index
-            ),
-            getListTile(
-              Icons.party_mode,
-              Colors.red,
-              "Party Mode",
-              context,
-              index
-            ),
+                Icons.party_mode, Colors.red, "Party Mode", context, index),
           ],
         ),
       );
@@ -279,15 +292,16 @@ class _MainHandGestureState extends State<MainHandGesture> {
               TextButton(
                   onPressed: () {
                     if (kDebugMode) {
-                      print(selectedAction);
+                      print("$selectedAction + selec stuff");
+                      print("$temp + temp stuff");
+                      readData("user1");
                     }
-                    if (kDebugMode) {
-                      print(temp);
-                    }
+
+                    //it will write to the server
                     Navigator.pop(context);
 
                     //store the selection
-                    //send it to the server 
+                    //send it to the server
                   },
                   child: const Text("Update or \n Go Back"))
             ],
@@ -297,43 +311,3 @@ class _MainHandGestureState extends State<MainHandGesture> {
     );
   }
 }
-
-
-
-void createData(){
-    databaseReference.child("flutterDevsTeam1").set({
-      'name': 'Deepak Nishad',
-      'description': 'Team Lead'
-    });
-    databaseReference.child("flutterDevsTeam2").set({
-      'name': 'Yashwant Kumar',
-      'description': 'Senior Software Engineer'
-    });
-    databaseReference.child("flutterDevsTeam3").set({
-      'name': 'Akshay',
-      'description': 'Software Engineer'
-    });
-    databaseReference.child("flutterDevsTeam4").set({
-      'name': 'Aditya',
-      'description': 'Software Engineer'
-    });
-
-  }
-  void readData() {
-    databaseReference.onValue.listen((event) {
-      print('Data : ${event.snapshot.value}');
-    });
-  }
-
-
-  void updateData(){
-    databaseReference.child('flutterDevsTeam1').update({
-      'description': 'CEO'
-    });
-    databaseReference.child('flutterDevsTeam2').update({
-      'description': 'Team Lead'
-    });
-    databaseReference.child('flutterDevsTeam3').update({
-      'description': 'Senior Software Engineer'
-    });
-  }

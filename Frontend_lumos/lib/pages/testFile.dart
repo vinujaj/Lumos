@@ -10,6 +10,7 @@ class FirebaseRealtimeDemoScreen extends StatelessWidget {
     readData();
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Flutter Realtime Database Demo'),
       ),
       body: Center(
@@ -38,7 +39,7 @@ class FirebaseRealtimeDemoScreen extends StatelessWidget {
               },
               // shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             ElevatedButton(
@@ -50,7 +51,7 @@ class FirebaseRealtimeDemoScreen extends StatelessWidget {
               },
               // shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             ElevatedButton(
@@ -85,15 +86,12 @@ class FirebaseRealtimeDemoScreen extends StatelessWidget {
 
   void updateData() {
     databaseReference.child('flutterDevsTeam1').update({'description': 'CEO'});
-    databaseReference
-        .child('flutterDevsTeam2')
-        .update({'description': 'Team Lead'});
-    databaseReference
-        .child('flutterDevsTeam3')
-        .update({'description': 'Senior Software Engineer'});
+    databaseReference.child('user1').update({
+      'actions': ["Switch ON", "Switch OFF", "Change Color", "Party Mode"]
+    });
   }
 
   void deleteData() {
-    databaseReference.child('user1').remove();
+    databaseReference.child('user2').remove();
   }
 }
