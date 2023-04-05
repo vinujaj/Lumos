@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:modernlogintute/components/my_button.dart';
 import 'package:modernlogintute/components/my_textfield.dart';
 import 'package:modernlogintute/components/square_tile.dart';
+import 'package:modernlogintute/pages/landing_page.dart';
 
 import '../main_page.dart';
 
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const MainPage()),
+        MaterialPageRoute(builder: (context) => const LandingPage()),
       );
     });
   }
