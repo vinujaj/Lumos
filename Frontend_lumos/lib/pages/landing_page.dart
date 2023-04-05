@@ -32,53 +32,22 @@ class LandingPageState extends State<LandingPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // ElevatedButton(
-                  //   onPressed: () {},
-                  //   style: ElevatedButton.styleFrom(
-                  //     primary: Colors.blue,
-                  //     minimumSize: Size(200, 50),
-                  //   ),
-                  //   child: Text('Login'),
-                  // ),
-                  // SizedBox(height: 16),
-                  // ElevatedButton(
-                  //   onPressed: () {},
-                  //   style: ElevatedButton.styleFrom(
-                  //     primary: Colors.blue,
-                  //     minimumSize: Size(200, 50),
-                  //   ),
-                  //   child: Text('Signup'),
-                  // ),
 
-                  // Text(
-                  //   'Hello',
-                  //   style: TextStyle(
-                  //     fontSize: 32,
-                  //     fontStyle: FontStyle.italic,
-                  //     fontWeight: FontWeight.bold,
-                  //     fontFamily: 'Your font name', // Replace with your font name
-                  //   ),
-                  // ),
                   SizedBox(height: 66),
                   Text(
                   'Lighting at your fingertips.',
                   style: GoogleFonts.sacramento (
                     textStyle: const TextStyle (fontSize: 40),
                   ),),
-                  // Text(
-                  //   'Lighting at your fingertips.',
-                  //   style: TextStyle(
-                  //     fontSize: 24,
-                  //     fontStyle: FontStyle.italic,
-                  //     fontFamily: 'Your font name', // Replace with your font name
-                  //   ),
-                  // ),
+
                   SizedBox(height: 62),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blue,
                           minimumSize: Size(150, 50),
@@ -98,7 +67,8 @@ class LandingPageState extends State<LandingPage> {
                             borderRadius: BorderRadius.circular(48),
                           ),
                         ),
-                        child: Text(
+                        child:
+                        const Text(
                           'Signup',
                           style: TextStyle(color: Colors.blue),
                         ),
@@ -107,34 +77,6 @@ class LandingPageState extends State<LandingPage> {
                   ),
                 ],
 
-
-        // child: SafeArea(
-        //   child: Center(
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Image.asset(
-        //           'lib/images/Landing_Screen.jpg',
-        //           fit: BoxFit.cover,
-        //         ),
-        //         SizedBox(height: 20),
-        //         ElevatedButton(
-        //           onPressed: () {
-        //             // Navigate to login screen
-        //           },
-        //           child: Text('Login'),
-        //         ),
-        //         SizedBox(height: 10),
-        //         ElevatedButton(
-        //           onPressed: () {
-        //             // Navigate to signup screen
-        //           },
-        //           child: Text('Sign up'),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
       ),
     ),
     ),
