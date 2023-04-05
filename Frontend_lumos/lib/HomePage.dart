@@ -15,6 +15,7 @@ class _InitialPageState extends State<InitialPage> {
   int currentIndex = 1;
   final screens = <Widget>[
     const ProfilePage(),
+
     const HomePage(),
     const SettingsPage()
   ];
