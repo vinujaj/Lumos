@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 import '../main_page.dart';
+import 'login_page.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -46,7 +47,10 @@ class LandingPageState extends State<LandingPage> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blue,
