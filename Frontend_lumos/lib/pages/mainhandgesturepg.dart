@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-final databaseReference = FirebaseDatabase.instance.ref();
+
 //List model getlist from github
 
 ListTile getListTile(
@@ -41,8 +41,9 @@ class MainHandGesture extends StatefulWidget {
   @override
   State<MainHandGesture> createState() => _MainHandGestureState();
 }
+final databaseReference = FirebaseDatabase.instance.ref();
 
-//read from the server 
+//read from the server for a user at the moment 
 
 List<String> selectedAction = [
   'Switch ON',
@@ -296,3 +297,43 @@ class _MainHandGestureState extends State<MainHandGesture> {
     );
   }
 }
+
+
+
+void createData(){
+    databaseReference.child("flutterDevsTeam1").set({
+      'name': 'Deepak Nishad',
+      'description': 'Team Lead'
+    });
+    databaseReference.child("flutterDevsTeam2").set({
+      'name': 'Yashwant Kumar',
+      'description': 'Senior Software Engineer'
+    });
+    databaseReference.child("flutterDevsTeam3").set({
+      'name': 'Akshay',
+      'description': 'Software Engineer'
+    });
+    databaseReference.child("flutterDevsTeam4").set({
+      'name': 'Aditya',
+      'description': 'Software Engineer'
+    });
+
+  }
+  void readData() {
+    databaseReference.onValue.listen((event) {
+      print('Data : ${event.snapshot.value}');
+    });
+  }
+
+
+  void updateData(){
+    databaseReference.child('flutterDevsTeam1').update({
+      'description': 'CEO'
+    });
+    databaseReference.child('flutterDevsTeam2').update({
+      'description': 'Team Lead'
+    });
+    databaseReference.child('flutterDevsTeam3').update({
+      'description': 'Senior Software Engineer'
+    });
+  }
