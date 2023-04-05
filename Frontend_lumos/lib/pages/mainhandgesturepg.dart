@@ -12,13 +12,13 @@ ListTile getListTile(icon, iconColor, titleText, context, index) {
       child: Icon(
         icon,
         color: iconColor,
-        size: 24.0,
+        size: 30.0,
       ),
     ),
     title: Text(
       titleText,
       style: const TextStyle(
-        fontSize: 14.0,
+        fontSize: 16.0,
         fontWeight: FontWeight.w700,
       ),
     ),
@@ -42,7 +42,7 @@ final databaseReference = FirebaseDatabase.instance.ref();
 
 List<String> selectedAction = [
   'Switch ON',
-  'Switch',
+  'Switch OFF',
   'Colour Change',
   'Party Mode'
 ];
@@ -99,12 +99,15 @@ void _openBottomSheet(context, int index) async {
         child: Wrap(
           children: <Widget>[
             const Center(
-              child: Text(
-                "Change Action",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    color: Color.fromARGB(255, 255, 174, 0)),
+              child: Padding(
+                padding: EdgeInsets.all(13.0),
+                child: Text(
+                  "Change Action",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: Color.fromARGB(255, 255, 174, 0)),
+                ),
               ),
             ),
             const Divider(
@@ -143,7 +146,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
     print(temp);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Gesture Controls "),
+        title: const Text("Customize Your Gestures"),
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),
@@ -158,142 +161,149 @@ class _MainHandGestureState extends State<MainHandGesture> {
               ]),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: GridView(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, mainAxisSpacing: 15, crossAxisSpacing: 15),
-            children: [
-              InkWell(
-                onTap: () {
-                  _openBottomSheet(context, 0);
-                  setSelectedAction(selectedAction[0], 0);
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const OverlayHandGesture()));
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue[600],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'lib/images/ok_sign.png',
-                        width: 80,
-                        height: 80,
-                      ),
-                      const Divider(
-                        thickness: 1,
-                      ),
-                      Text(
-                        selectedAction[0],
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 255, 255, 255),
+          padding: const EdgeInsets.only(top: 40.0),
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: GridView(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
+              children: [
+                InkWell(
+                  onTap: () {
+                    _openBottomSheet(context, 0);
+                    setSelectedAction(selectedAction[0], 0);
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const OverlayHandGesture()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/ok_sign.png',
+                          width: 80,
+                          height: 80,
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  _openBottomSheet(context, 1);
-                  setSelectedAction(selectedAction[1], 1);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue[600],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'lib/images/handup.png',
-                        width: 80,
-                        height: 80,
-                      ),
-                      const Divider(
-                        thickness: 1,
-                      ),
-                      Text(
-                        selectedAction[1],
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 255, 255, 255),
+                        const Divider(
+                          thickness: 1,
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  _openBottomSheet(context, 2);
-                  setSelectedAction(
-                      selectedAction[2], 2); //store the image as well
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue[600],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'lib/images/closedfist.png',
-                        width: 80,
-                        height: 80,
-                      ),
-                      const Divider(
-                        thickness: 1,
-                      ),
-                      Text(
-                        selectedAction[2],
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  _openBottomSheet(context, 3);
-                  setSelectedAction(selectedAction[3], 3);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue[600],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'lib/images/thumsup.png',
-                        width: 80,
-                        height: 80,
-                      ),
-                      const Divider(
-                        thickness: 1,
-                      ),
-                      Text(selectedAction[3],
+                        Text(
+                          selectedAction[0],
                           style: const TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 255, 255, 255))),
-                    ],
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 82, 148, 248),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              TextButton(
-                  onPressed: () {
+                InkWell(
+                  onTap: () {
+                    _openBottomSheet(context, 1);
+                    setSelectedAction(selectedAction[1], 1);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/handup.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                        ),
+                        Text(
+                          selectedAction[1],
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 82, 148, 248),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    _openBottomSheet(context, 2);
+                    setSelectedAction(
+                        selectedAction[2], 2); //store the image as well
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/closedfist.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                        ),
+                        Text(
+                          selectedAction[2],
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 82, 148, 248),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    _openBottomSheet(context, 3);
+                    setSelectedAction(selectedAction[3], 3);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/thumsup.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                        ),
+                        Text(selectedAction[3],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 82, 148, 248),
+                            )),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
                     if (kDebugMode) {
                       print("$selectedAction + selec stuff");
                       print("$temp + temp stuff");
@@ -307,8 +317,14 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     //store the selection
                     //send it to the server
                   },
-                  child: const Text("Update or \n Go Back"))
-            ],
+                  child: Image.asset(
+                    'lib/images/backbutton.jpg',
+                    width: 80,
+                    height: 80,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
