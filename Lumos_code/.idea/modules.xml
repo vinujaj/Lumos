@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hand sign.iml" filepath="$PROJECT_DIR$/.idea/hand sign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LUMOS_gesture.iml" filepath="$PROJECT_DIR$/.idea/LUMOS_gesture.iml" />
     </modules>
   </component>
 </project>
