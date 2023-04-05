@@ -42,6 +42,8 @@ class MainHandGesture extends StatefulWidget {
   State<MainHandGesture> createState() => _MainHandGestureState();
 }
 
+//read from the server 
+
 List<String> selectedAction = [
   'Switch ON',
   'Switch OFF',
@@ -284,6 +286,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                     Navigator.pop(context);
 
                     //store the selection
+                    //send it to the server 
                   },
                   child: const Text("Update or \n Go Back"))
             ],

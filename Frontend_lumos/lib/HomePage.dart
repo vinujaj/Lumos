@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/pages/testFile.dart';
 import 'pages/home_page.dart';
@@ -23,52 +22,33 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: <Widget>[
-        screens[currentIndex],
-        Positioned(
-          left: 15,
-          right: 15,
-          bottom: 20,
-          child: Container(
-            clipBehavior:
-                Clip.hardEdge, //or better look(and cost) using Clip.antiAlias,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(24),
-                topLeft: Radius.circular(24),
-                bottomRight: Radius.circular(24),
-                bottomLeft: Radius.circular(24),
-              ),
-            ),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.blue[500],
-              selectedItemColor: Colors.white,
-              showUnselectedLabels: false,
-              iconSize: 40,
-              currentIndex: currentIndex,
-              onTap: (index) => setState(() => currentIndex = index),
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: "Profile",
-                  backgroundColor: Colors.red,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: "Home",
-                  backgroundColor: Colors.red,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
-                  label: "Settings",
-                  backgroundColor: Colors.red,
-                ),
-              ],
-            ),
+      body: screens[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.blue[500],
+        selectedItemColor: Colors.white,
+        showUnselectedLabels: false,
+        iconSize: 40,
+        currentIndex: currentIndex,
+        onTap: (index) => setState(() => currentIndex = index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.red,
           ),
-        ),
-      ]),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+            backgroundColor: Colors.red,
+          ),
+        ],
+      ),
     );
   }
 }
