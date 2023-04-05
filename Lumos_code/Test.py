@@ -4,9 +4,11 @@ from cvzone.ClassificationModule import Classifier
 import numpy as np
 import math
 import pyfirmata
+import time
 
 board = pyfirmata.Arduino('COM5')
-led_pin = board.get_pin('d:13:o')
+led_pin_1 = board.get_pin('d:5:o')
+led_pin_2 = board.get_pin('d:4:o')
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
@@ -15,7 +17,9 @@ classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
 offset = 20
 imgSize = 300
 
-labels = ["A", "B", "C", "D", "E", "F", "G", "H"]
+labels = ["A", "B", "C", "D"]
+
+last_led_toggle_time = time.monotonic()
 
 while True:
     success, img = cap.read()
@@ -54,9 +58,18 @@ while True:
         # Send the corresponding action to the Arduino board
 
         if labels[index] == 'A':
-            led_pin.write(1)  # turn the LED on
+            led_pin_1.write(1)  # turn LED 1 on
+            led_pin_2.write(0)  # turn LED 2 off
         elif labels[index] == 'B':
-            led_pin.write(0)  # turn the LED off
+            led_pin_1.write(0)  # turn LED 1 off
+            led_pin_2.write(0)  # turn LED 2 off
+        elif labels[index] == 'C':
+            led_pin_1.write(0)  # turn LED 1 off
+            led_pin_2.write(1)  # turn LED 2 on
+        elif labels[index] == 'D':
+            led_pin_1.write(1 - led_pin_1.read())  # toggle LED 1
+            led_pin_2.write(1 - led_pin_2.read())  # toggle LED 2
+            last_led_toggle_time = time.monotonic()  # update the last toggle time
 
         cv2.rectangle(imgOutput, (x - offset, y - offset - 50),
                       (x - offset + 90, y - offset - 50 + 50), (255, 0, 255), cv2.FILLED)
