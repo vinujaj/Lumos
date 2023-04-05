@@ -42,7 +42,7 @@ final databaseReference = FirebaseDatabase.instance.ref();
 
 List<String> selectedAction = [
   'Switch ON',
-  'Switch OFF',
+  'Switch',
   'Colour Change',
   'Party Mode'
 ];
@@ -51,40 +51,41 @@ List<String> temp = [
   'Switch ON',
   'Colour Change',
   'Colour Change',
-  'Party Mode'];
+  'Party Mode'
+];
+
+List<String> parseActions(String actionsStr) {
+  RegExp regExp = RegExp(r'\[(.*?)\]');
+  RegExpMatch? match = regExp.firstMatch(actionsStr);
+  String? actionsListStr = match?.group(1);
+  return actionsListStr!.split(', ');
+}
+
 void createData() {
   databaseReference.child("user1").set({
-    'actions': ["o", "s", "s", "f"],
+    'action': ["o", "s", "s", "f"],
   });
   databaseReference.child("user2").set({
-    'actions': ["s", "t", "w", "g"],
+    'action': ["s", "t", "w", "g"],
   });
 }
 
 void getUserId() {}
+
 void readData(String childNode) async {
   databaseReference.child(childNode).keepSynced(true);
   databaseReference.child(childNode).onValue.listen((event) {
-    print('Data : ${event.snapshot.value}');
+    String value = '${event.snapshot.value}';
+    selectedAction = parseActions(value);
+    print("$selectedAction + gackk");
+    //print(value);
   });
-  // databaseReference.child(childNode).onValue.listen((event) {
-  //   final value = event.snapshot.value;
-  //   // List<String>? pointlist = List.from(value["user2"]);
-  //   print(value);
-  // });
 }
 
 //pass parameter(user id , list string)
-void updateData() {
-  databaseReference.child('user1').update(
-    {
-      'action': ["p", "y", "w", "g"]
-    },
-  );
-  databaseReference.child('user2').update(
-    {
-      'action': ["s", "b", "w", "q"]
-    },
+void updateData(String child) {
+  databaseReference.child(child).update(
+    {'action': temp},
   );
 }
 
@@ -137,6 +138,8 @@ class _MainHandGestureState extends State<MainHandGesture> {
 
   @override
   Widget build(BuildContext context) {
+    readData("user1");
+    print("The read data above");
     print(temp);
     return Scaffold(
       appBar: AppBar(
@@ -295,6 +298,7 @@ class _MainHandGestureState extends State<MainHandGesture> {
                       print("$selectedAction + selec stuff");
                       print("$temp + temp stuff");
                       readData("user1");
+                      updateData("user1");
                     }
 
                     //it will write to the server
