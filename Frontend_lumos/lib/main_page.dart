@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:modernlogintute/pages/landing_page.dart';
 import 'package:modernlogintute/pages/login_page.dart';
 
 import 'HomePage.dart';
@@ -16,7 +17,7 @@ class MainPage extends StatelessWidget {
           if (snapshot.hasData) {
             return const InitialPage();
           } else {
-            return LoginPage();
+            return LandingPage();
           }
         },
       ),

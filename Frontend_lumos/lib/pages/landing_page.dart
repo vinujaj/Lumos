@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modernlogintute/pages/testFile.dart';
 
 
 import '../main_page.dart';
 import 'login_page.dart';
+// import 'testFile.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -50,7 +52,7 @@ class LandingPageState extends State<LandingPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginPage()));
+                                  builder: (context) =>LoginPage()));
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blue,

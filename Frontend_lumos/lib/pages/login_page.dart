@@ -25,13 +25,34 @@ class _LoginPageState extends State<LoginPage> {
     passwordController.dispose();
     super.dispose();
   }
+  //
+  // Future<void> signUserIn() async {
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //       email: emailController.text.trim(),
+  //       password: passwordController.text.trim(),
+  //     );
+  //   }
+
 
   Future<void> signUserIn() async {
+    try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+      // Navigate to the home screen or perform some other action upon successful sign-in
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        // Handle the error (e.g., display an error message)
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        // Handle the error (e.g., display an error message)
+        print('Wrong password provided for that user.');
+      }
+      // Handle other errors here (e.g., display an error message)
     }
+  }
+
 
 
   @override
@@ -110,13 +131,13 @@ class _LoginPageState extends State<LoginPage> {
 
                   // sign in button
                   MyButton(
-                     onTap: signUserIn,
-                      // onTap: () {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => InitialPage()));
-                      // },
+                     //onTap: signUserIn,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => InitialPage()));
+                      },
 
                   ),
 
