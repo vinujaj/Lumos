@@ -5,6 +5,8 @@ import 'package:modernlogintute/components/my_button.dart';
 import 'package:modernlogintute/components/my_textfield.dart';
 import 'package:modernlogintute/components/square_tile.dart';
 
+import '../HomePage.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
 
@@ -25,11 +27,19 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
-  }
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        // email: emailController.text.trim(),
+        // password: passwordController.text.trim(),
+        email: "sula123@gmail.com",
+        password: "password123",
+      );
+    }
+      catch(e){
+      print(e);
+      }
+    }
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,8 +117,16 @@ class _LoginPageState extends State<LoginPage> {
 
                   // sign in button
                   MyButton(
-                    onTap: signUserIn,
+                     onTap: signUserIn,
+                      // onTap: () {
+                      //   Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => InitialPage()));
+                      // },
+
                   ),
+
 
                   const SizedBox(height: 50),
 

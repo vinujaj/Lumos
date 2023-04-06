@@ -14,8 +14,8 @@ class InitialPage extends StatefulWidget {
 class _InitialPageState extends State<InitialPage> {
   int currentIndex = 1;
   final screens = <Widget>[
-    // const ProfilePage(),
-    FirebaseRealtimeDemoScreen(),
+    const ProfilePage(),
+    // FirebaseRealtimeDemoScreen(),
     const HomePage(),
     const SettingsPage()
   ];
